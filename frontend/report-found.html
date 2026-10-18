@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Report found item | FindBack</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <nav>
+    <a class="brand" href="index.html">FindBack</a>
+    <div data-nav-links></div>
+  </nav>
+  <main class="form-page">
+    <section class="form-card wide">
+      <div class="form-intro">
+        <div><p class="eyebrow">STEP 1 · CAMPUS FIND</p><h1>What did you find?</h1><p class="lead">Add the details another student will need to recognise and claim their item.</p></div>
+        <span class="form-badge">HELP RETURN IT</span>
+      </div>
+      <div class="status-rail" aria-label="Found item flow"><div class="current">Report find</div><div>Board</div><div>Verify</div><div>Return</div></div>
+      <form data-report="found" enctype="multipart/form-data">
+        <label>Item name<input name="title" placeholder="e.g. Blue backpack" required></label>
+        <label>Description<textarea name="description" placeholder="Distinctive details, brand, colour..." required></textarea></label>
+        <div class="two-col">
+          <label>Category<input name="category" placeholder="Bags" required></label>
+          <label>Found location<input name="location" placeholder="Cafeteria entrance" required></label>
+        </div>
+        <label>Photo of item<input name="image" type="file" accept="image/png,image/jpeg,image/gif,image/webp"></label>
+        <button class="button" type="submit">Publish found report</button>
+        <p class="form-message"></p>
+      </form>
+    </section>
+  </main>
+  <script src="../js/auth.js"></script>
+  <script src="../js/items.js"></script>
+</body>
+</html>

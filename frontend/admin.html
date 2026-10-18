@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin view | FindBack</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <nav>
+    <a class="brand" href="index.html">FindBack</a>
+    <div data-nav-links></div>
+  </nav>
+  <main class="content">
+    <p class="eyebrow">ADMIN VIEW</p>
+    <h1>Lost & found desk</h1>
+    <p class="lead">New student lost reports land here. Search the board and mark an item found so students can see the update.</p>
+    <div class="status-rail" aria-label="Admin verification flow"><div class="complete">Reported</div><div class="current">Match</div><div>Verify</div><div>Returned</div></div>
+    <div id="stats" class="stats admin-stats">Loading...</div>
+
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">ALERTS</p>
+        <h2>Student notifications</h2>
+      </div>
+      <button class="button small secondary" id="mark-read" type="button">Mark alerts read</button>
+    </div>
+    <div id="notifications" class="notice-list"><p>Loading alerts...</p></div>
+
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">SEARCH & UPDATE</p>
+        <h2>Campus item board</h2>
+      </div>
+    </div>
+    <form id="search-form" class="search-bar">
+      <input id="item-search" type="search" placeholder="Search by name, location or category">
+      <select id="type-filter">
+        <option value="">All items</option>
+        <option value="lost">Lost items</option>
+        <option value="found">Found items</option>
+      </select>
+      <button class="button" type="submit">Search</button>
+    </form>
+    <div id="items" class="items-grid" data-admin-board><p>Loading reports...</p></div>
+
+    <div class="section-head">
+      <div><p class="eyebrow">STEP 3 · VERIFY</p><h2>Claim requests</h2></div>
+      <span class="form-badge">REVIEW BEFORE RETURN</span>
+    </div>
+    <div id="claims" class="notice-list"><p>Loading claim requests...</p></div>
+  </main>
+  <script src="../js/auth.js"></script>
+  <script src="../js/admin.js?v=2"></script>
+  <script src="../js/items.js?v=2"></script>
+</body>
+</html>

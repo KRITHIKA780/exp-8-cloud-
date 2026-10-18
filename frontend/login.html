@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign in | FindBack</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="auth-page">
+  <nav>
+    <a class="brand" href="index.html">FindBack</a>
+    <a class="button small" href="register.html?role=student">Create account</a>
+  </nav>
+  <main class="auth-layout">
+    <section class="form-card auth-card">
+      <p class="eyebrow">EXISTING ACCESS</p>
+      <h1>Sign in</h1>
+      <p class="panel-note">Choose your account type and enter your details.</p>
+      <form data-auth="login">
+        <label>Account type
+          <select name="role" required>
+            <option value="student">Student</option>
+            <option value="admin">Admin</option>
+          </select>
+        </label>
+        <label>Email<input name="email" type="email" required placeholder="you@college.edu"></label>
+        <label>Password<input name="password" type="password" required placeholder="Enter your password"></label>
+        <button class="button" type="submit">Sign in</button>
+        <p class="form-message"></p>
+      </form>
+      <p class="auth-footnote">New to FindBack? <a href="register.html?role=student">Create an account</a></p>
+    </section>
+  </main>
+  <script src="../js/auth.js"></script>
+</body>
+</html>

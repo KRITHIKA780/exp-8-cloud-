@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Browse items | FindBack</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <nav>
+    <a class="brand" href="index.html">FindBack</a>
+    <div data-nav-links></div>
+  </nav>
+  <main class="content">
+    <p class="eyebrow">LOST & FOUND BOARD</p>
+    <h1>Search campus items</h1>
+    <p class="lead">Students and admins can both view lost and found reports. If an admin marks a lost item as found, the status updates here.</p>
+    <div class="section-kicker"><span class="eyebrow">STEP 2 · SEARCH</span></div>
+    <form id="search-form" class="search-bar">
+      <input id="item-search" type="search" placeholder="Search by item name, where it was missed, or category">
+      <select id="type-filter">
+        <option value="">All items</option>
+        <option value="lost">Lost items</option>
+        <option value="found">Found items</option>
+      </select>
+      <button class="button" type="submit">Search</button>
+    </form>
+    <div id="items" class="items-grid"><p>Loading reports...</p></div>
+  </main>
+  <script src="../js/auth.js"></script>
+  <script src="../js/items.js"></script>
+</body>
+</html>

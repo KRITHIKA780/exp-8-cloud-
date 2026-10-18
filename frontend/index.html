@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FindBack | Campus Management Portal</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="home">
+  <nav>
+    <a class="brand" href="index.html">FindBack</a>
+    <div data-nav-links></div>
+  </nav>
+
+  <main class="gate portal-gate">
+    <div class="gate-copy">
+      <p class="eyebrow">CAMPUS MANAGEMENT PORTAL</p>
+      <h1>FindBack<br><em>Lost & found, together.</em></h1>
+      <p class="lead">A secure campus desk for reporting missing items, finding their owners, and keeping every update visible.</p>
+      <div class="flow-steps login-journey" aria-label="FindBack workspace">
+        <div class="flow-step active"><b>1</b><strong>Report</strong><small>Lost or found</small></div>
+        <div class="flow-step"><b>2</b><strong>Search</strong><small>Check the board</small></div>
+        <div class="flow-step"><b>3</b><strong>Updates</strong><small>Track your item</small></div>
+      </div>
+    </div>
+
+    <section class="gate-panel portal-card">
+      <div class="portal-tabs" role="tablist" aria-label="Account access">
+        <button class="portal-tab active" type="button" role="tab" aria-selected="true" data-auth-tab="login">EXISTING ACCESS</button>
+        <button class="portal-tab" type="button" role="tab" aria-selected="false" data-auth-tab="register">NEW ENROLLMENT</button>
+      </div>
+      <div id="role-step">
+        <p class="eyebrow">SELECT AUTHORITY LEVEL</p>
+        <div class="role-grid">
+          <button class="role-card student" type="button" data-choose="student">
+            <strong>STUDENT / USER</strong>
+          </button>
+          <button class="role-card admin" type="button" data-choose="admin">
+            <strong>OFFICIAL / ADMIN</strong>
+          </button>
+        </div>
+        <p class="account-prompt">Choose your access level to continue.</p>
+      </div>
+
+      <div id="login-step" hidden>
+        <button class="text-link" id="back-to-roles" type="button">Change view</button>
+        <p class="eyebrow" id="login-eyebrow">IDENTITY TAG</p>
+        <form data-auth="login">
+          <input type="hidden" name="role" value="student">
+          <label>Email<input name="email" type="email" required placeholder="you@college.edu"></label>
+          <label>Security key<input name="password" type="password" required></label>
+          <button class="button" type="submit" id="login-submit">ENTER PORTAL</button>
+          <p class="form-message"></p>
+        </form>
+        <p id="student-extra">New student? <a id="create-account-link" href="register.html?role=student">Create a student account</a></p>
+        <p id="admin-extra" hidden>Need access? <a id="admin-account-link" href="register.html?role=admin">Create an admin account</a></p>
+      </div>
+
+      <div id="register-step" hidden>
+        <p class="eyebrow">SELECT AUTHORITY LEVEL</p>
+        <div class="role-grid compact">
+          <button class="role-card student selected" type="button" data-register-role="student"><strong>CITIZEN / USER</strong></button>
+          <button class="role-card admin" type="button" data-register-role="admin"><strong>OFFICIAL / ADMIN</strong></button>
+        </div>
+        <form data-auth="register" class="portal-register-form">
+          <input type="hidden" name="role" value="student">
+          <label>Identity tag<input name="name" required placeholder="Your full name"></label>
+          <label>Email address<input name="email" type="email" required placeholder="you@college.edu"></label>
+          <label>Security key<input name="password" type="password" minlength="6" required placeholder="Minimum 6 characters"></label>
+          <button class="button" type="submit">REGISTER NEW PROTOCOL</button>
+          <p class="form-message"></p>
+        </form>
+      </div>
+
+      <div id="enter-step" hidden>
+        <p class="eyebrow">YOU’RE SIGNED IN</p>
+        <h2 id="enter-title">Continue</h2>
+        <p class="panel-note" id="enter-note"></p>
+        <a class="button" id="enter-view" href="dashboard.html">Open my view</a>
+      </div>
+    </section>
+  </main>
+  <script src="../js/auth.js"></script>
+</body>
+</html>

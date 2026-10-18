@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create account | FindBack</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <nav>
+    <a class="brand" href="index.html">FindBack</a>
+    <div data-nav-links></div>
+  </nav>
+  <main class="form-page">
+    <section class="form-card">
+      <p class="eyebrow" id="register-eyebrow">STUDENT ACCESS</p>
+      <h1 id="register-title">Create student account</h1>
+      <form data-auth="register">
+        <label>Full name<input name="name" required></label>
+        <label>Email<input name="email" type="email" required></label>
+        <label>Password<input name="password" type="password" minlength="6" required></label>
+        <label>Account type
+          <select name="role">
+            <option value="student">Student</option>
+            <option value="admin">Admin</option>
+          </select>
+        </label>
+        <button class="button" type="submit">Create student account</button>
+        <p class="form-message"></p>
+      </form>
+      <p>Already registered? <a href="index.html">Sign in to your view</a></p>
+    </section>
+  </main>
+  <script src="../js/auth.js"></script>
+</body>
+</html>

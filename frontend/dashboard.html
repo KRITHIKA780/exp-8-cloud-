@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student view | FindBack</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <nav>
+    <a class="brand" href="index.html">FindBack</a>
+    <div data-nav-links></div>
+  </nav>
+  <main class="content">
+    <p class="eyebrow">STUDENT VIEW</p>
+    <h1 id="welcome">Welcome back</h1>
+    <p class="lead">Report a lost item, search the board, and watch for admin “found” updates.</p>
+    <div class="flow-steps" aria-label="Student journey">
+      <div class="flow-step active"><b>1</b><strong>Report</strong><small>Tell us what happened</small></div>
+      <div class="flow-step"><b>2</b><strong>Search</strong><small>Check campus finds</small></div>
+      <div class="flow-step"><b>3</b><strong>Claim</strong><small>Share proof of ownership</small></div>
+      <div class="flow-step"><b>4</b><strong>Return</strong><small>Collect your item</small></div>
+    </div>
+    <div class="dashboard-grid">
+      <a class="feature-card" href="report-lost.html"><span>LOST</span><h2>Report a lost item</h2><p>Add the item name, photo, and where it was missed. Admin is notified right away.</p></a>
+      <a class="feature-card warm" href="report-found.html"><span>FOUND</span><h2>Report a found item</h2><p>Help another student recover something you picked up on campus.</p></a>
+      <a class="feature-card" href="items.html"><span>BOARD</span><h2>View lost & found</h2><p>Search every report. Found status from admin shows here too.</p></a>
+      <a class="feature-card warm" href="my-reports.html"><span>UPDATES</span><h2>My reports</h2><p>See whether your lost item is still missing or was marked found.</p></a>
+    </div>
+    <div class="section-head">
+      <div><p class="eyebrow">STUDENT NOTIFICATIONS</p><h2>Lost-item updates</h2></div>
+    </div>
+    <div id="student-notifications" class="notice-list"><p>Loading your notifications...</p></div>
+  </main>
+  <script src="../js/auth.js"></script>
+  <script>
+    const user = JSON.parse(localStorage.getItem('user') || 'null');
+    if (!user) window.location.href = '/frontend/index.html';
+    if (user && user.role === 'admin') window.location.href = '/frontend/admin.html';
+    if (user) document.querySelector('#welcome').textContent = 'Hi, ' + user.name.split(' ')[0];
+    if (user) {
+      fetch('/api/auth/notifications/' + user.id)
+        .then((response) => response.json().then((data) => ({ response, data })))
+        .then(({ response, data }) => {
+          const target = document.querySelector('#student-notifications');
+          if (!response.ok) throw new Error(data.error || 'Unable to load notifications.');
+          target.innerHTML = data.length ? data.map((note) => `
+            <article class="notice ${note.is_read ? '' : 'unread'}">
+              <strong>${note.item_status === 'found' ? 'FOUND UPDATE' : 'REPORT RECEIVED'}</strong>
+              <p>${note.message}</p>
+              <small>${note.title} · ${note.location}</small>
+            </article>
+          `).join('') : '<p>No updates yet. Your report updates will appear here.</p>';
+        })
+        .catch((error) => { document.querySelector('#student-notifications').innerHTML = `<p>${error.message}</p>`; });
+    }
+  </script>
+</body>
+</html>

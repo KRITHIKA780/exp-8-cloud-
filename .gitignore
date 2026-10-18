@@ -1,0 +1,6 @@
+__pycache__/
+*.py[cod]
+.venv/
+backend/lost_found.db
+backend/uploads/*
+!backend/uploads/.gitkeep
